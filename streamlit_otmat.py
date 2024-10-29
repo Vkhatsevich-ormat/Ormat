@@ -63,7 +63,7 @@ st.markdown(
             position: fixed; 
             top: 6%; 
             left: 5%; 
-            width: 90vw; 
+            width: 85vw; 
             height: 94vh; 
             z-index: 9999; 
             display: flex;

@@ -62,8 +62,8 @@ st.markdown(
         .iframe-container {{
             position: fixed; 
             top: 6%; 
-            left: 0; 
-            width: 100vw; 
+            left: 5%; 
+            width: 90vw; 
             height: 94vh; 
             z-index: 9999; 
             display: flex;

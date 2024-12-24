@@ -187,7 +187,7 @@ def main():
 
 # Power BI dashboard page (user-specific)
     else:
-        st.title("Power BI Dashboard")
+        st.title(title_text)
 
         # Get the Power BI URL for the logged-in user from the JSON data
         username = st.session_state.username

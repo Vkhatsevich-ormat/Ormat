@@ -144,6 +144,8 @@ def main():
 
     # Title page (shown for 5 seconds after successful login)
     elif st.session_state.show_title_page:
+        st.empty()
+        st.empty()
         st.markdown(
         """
         <style>
@@ -189,8 +191,6 @@ def main():
 
 # Power BI dashboard page (user-specific)
     else:
-        st.title(title_text)
-
         # Get the Power BI URL for the logged-in user from the JSON data
         username = st.session_state.username
         site = st.session_state.site  # Get the user's site
@@ -227,13 +227,7 @@ def main():
                         """,
                         unsafe_allow_html=True,
                     )
-                                                             
-        # Logout button
-        if st.button("Logout"):
-            st.session_state.authenticated = False
-            st.session_state.username = None
-            st.rerun()
-            
+        
         # # Construct the account URL with the SAS token
         # account_url_dnl = f"https://{storage_account_name}.dfs.core.windows.net?{sas_token}"
         # service_client_dnl = DataLakeServiceClient(account_url=account_url_dnl)   
@@ -270,6 +264,13 @@ def main():
                             file_name=selected_file,
                             mime="application/octet-stream",  # Adjust MIME type if needed
                         )
+                    with st.empty():
+                        # Logout button
+                        if st.button("Logout",key='logout'):
+                            st.session_state.authenticated = False
+                            st.session_state.username = None
+                            st.rerun() 
+
             except Exception as e:
                 st.sidebar.error(f"Error connecting to ADLS: {e}")
 if __name__ == "__main__":

@@ -138,7 +138,7 @@ def main():
                 st.session_state.show_title_page = True
                 st.session_state.username = username
                 st.session_state.site = site  # Store the user's site
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid username or password")
 

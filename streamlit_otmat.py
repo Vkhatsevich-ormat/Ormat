@@ -195,7 +195,7 @@ def main():
         username = st.session_state.username
         site = st.session_state.site  # Get the user's site
         if powerbi_urls:
-            powerbi_url = powerbi_urls.get(username)
+            powerbi_url = powerbi_urls.get(site)  # Use site as the key in powerbi_urls
             if powerbi_url:
                 # Display the Power BI dashboard in an iframe
                 with st.container():
@@ -222,7 +222,7 @@ def main():
 
                         </style>
                         <div class="iframe-container">
-                            <iframe title="Power BI Dashboard" src="{power_bi_url}" frameborder="0" allowFullScreen="true"></iframe>
+                            <iframe title="Power BI Dashboard" src="{powerbi_url}" frameborder="0" allowFullScreen="true"></iframe>
                         </div>
                         """,
                         unsafe_allow_html=True,

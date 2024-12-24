@@ -38,6 +38,8 @@ file_system_client = service_client.get_file_system_client(file_system=file_syst
 paths = file_system_client.get_paths() 
 files = [os.path.basename(path.name) for path in paths if not path.is_directory]
 
+placeholder = st.empty()
+
 # --- Function to list files in a directory ---
 def list_files_in_directory(file_system_client, directory):
     try:
@@ -138,6 +140,16 @@ def main():
                 st.session_state.show_title_page = True
                 st.session_state.username = username
                 st.session_state.site = site  # Store the user's site
+                placeholder.progress(0, "Wait for it...")
+                time.sleep(1)
+                placeholder.progress(25, "Wait for it...")
+                time.sleep(1)
+                placeholder.progress(50, "Wait for it...")
+                time.sleep(1)
+                placeholder.progress(75, "Wait for it...")
+                time.sleep(1)
+                placeholder.progress(100, "Wait for it...")
+                time.sleep(1)
                 st.rerun()
             else:
                 st.error("Invalid username or password")

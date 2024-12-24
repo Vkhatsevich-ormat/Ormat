@@ -131,12 +131,14 @@ def main():
         username = st.text_input("Username")
         password_input = st.text_input("Password", type="password")
         if st.button("Login"):
-            if authenticate(username, password_input, user_df):
+            # Get the site from the authenticate function
+            site = authenticate(username, password_input, user_df)  
+            if site:
                 st.session_state.authenticated = True
                 st.session_state.show_title_page = True
                 st.session_state.username = username
                 st.session_state.site = site  # Store the user's site
-                st.rerun()
+                st.experimental_rerun()
             else:
                 st.error("Invalid username or password")
 
